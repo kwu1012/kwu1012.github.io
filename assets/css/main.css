@@ -130,9 +130,19 @@ body {
 	border-radius: 8px;
   } */
 .flex-container {
-  display: flex;
-  flex-direction: column;
-}
+	display: flex;
+	flex-direction: row;
+	background-color: DodgerBlue;
+  }
+  
+  .flex-container > div {
+	background-color: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+  }
 
 .card-1 {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -223,13 +233,6 @@ body {
 
   
   
-.rotate90 {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
 
 
 ol, ul {
@@ -756,215 +759,248 @@ input, select, textarea {
 			}
 
 
-/* Icon */
-
-	.icon {
-		text-decoration: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		border-bottom: none;
-		position: relative;
-
-		
-	}
-
-		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			display: inline-block;
-			font-style: normal;
-			font-variant: normal;
-			text-rendering: auto;
-			line-height: 1;
-			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
-			font-weight: 400;
-		}
-
-		.icon > .label {
-			display: none;
-		}
-
-		.icon:before {
-			line-height: solid;
-		}
-
-		.icon.solid:before {
-			font-weight: 900;
-		}
-
-		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
-		}
-
-		.icon.major {
-			border: solid 1px;
-			display: inline-block;
-			border-radius: 100%;
-			padding: 0.65em;
-			margin: 0 0 2em 0;
-			cursor: default;
-		}
-
-			.icon.major:before {
-				display: inline-block;
-				font-size: 6.25rem;
-				width: 2.25em;
-				height: 2.25em;
-				line-height: 2.2em;
-				border-radius: 100%;
-				border: solid 1px;
-				text-align: center;
-			}
-
-	
-
-		.icon.alt {
-			display: inline-block;
-			border: solid 1px;
-			border-radius: 100%;
-		}
-
-			.icon.alt:before {
-				display: block;
-				font-size: 1.25em;
-				width: 2em;
-				height: 2em;
-				text-align: center;
-				line-height: 2em;
-			}
-
-		.icon.style1 {
-			color: #efa8b0;
-
-		}
-
-		.icon.style2 {
-			color: #c79cc8;
-		}
-
-		.icon.style3 {
-			color: #a89cc8;
-		}
-
-		.icon.style4 {
-			color: #9bb2e1;
-		}
-
-		.icon.style5 {
-			color: #8cc9f0;
-		}
-
-		.icon.style10 {
-			color: #fffff;
-		}
-
-		@media screen and (max-width: 1680px) {
-
-			.icon.major:before {
-				font-size: 5.5rem;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
-
-			.icon.major:before {
-				font-size: 4.75rem;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			.icon.major {
-				margin: 0 0 1.5em 0;
-				padding: 0.35em;
-			}
-
-				.icon.major:before {
-					font-size: 3.5rem;
-				}
-
-		}
-
-	.icon.major {
-		border-color: rgba(255, 255, 255, 0.35);
-	}
-
-		.icon.major:before {
-			border-color: rgba(255, 255, 255, 0.35);
-		}
-
-	.icon.alt {
-		border-color: rgba(255, 255, 255, 0.35);
-		color: #ffffff;
-	}
-
-		.icon.alt:hover {
-			background-color: rgba(255, 255, 255, 0.075);
-		}
-
-		.icon.alt:active {
-			background-color: rgba(255, 255, 255, 0.2);
-		}
-
 /* Image */
 
 	.image {
-		border-radius: 8px;
 		border: 0;
 		display: inline-block;
 		position: relative;
 	}
 
-		.image img {
-			border-radius: 8px;
+		.image:after {
+			-moz-transition: opacity 0.25s ease-in-out;
+			-webkit-transition: opacity 0.25s ease-in-out;
+			-ms-transition: opacity 0.25s ease-in-out;
+			transition: opacity 0.25s ease-in-out;
+			background-image: url("images/overlay.png");
+			content: '';
 			display: block;
+			height: 100%;
+			left: 0;
+			opacity: 0.2;
+			position: absolute;
+			top: 0;
+			width: 100%;
 		}
 
-		.image.left, .image.right {
-			max-width: 40%;
-		}
-
-			.image.left img, .image.right img {
-				width: 100%;
-			}
-
-		.image.left {
-			float: left;
-			margin: 0 1.5em 1em 0;
-			top: 0.25em;
-		}
-
-		.image.right {
-			float: right;
-			margin: 0 0 1em 1.5em;
-			top: 0.25em;
+		.image img {
+			display: block;
 		}
 
 		.image.fit {
 			display: block;
-			margin: 0 0 2em 0;
-			width: 100%;
 		}
 
 			.image.fit img {
+				display: block;
 				width: 100%;
 			}
 
-		.image.main {
+		.image.feature {
 			display: block;
-			margin: 0 0 3em 0;
-			width: 100%;
+			margin: 0 0 2em 0;
 		}
 
-			.image.main img {
+			.image.feature img {
+				display: block;
 				width: 100%;
 			}
 
+		.image.icon {
+			-moz-perspective: 500px;
+			-webkit-perspective: 500px;
+			-ms-perspective: 500px;
+			perspective: 500px;
+		}
+
+			.image.icon:before {
+				-moz-transition: -moz-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				-webkit-transition: -webkit-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				-ms-transition: -ms-transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				transition: transform 0.1s ease-in-out, font-size 0.1s ease-in-out;
+				color: #fff;
+				font-size: 6em;
+				height: 1em;
+				left: 50%;
+				line-height: 1em;
+				margin: -0.5em 0 0 -0.5em;
+				position: absolute;
+				text-align: center;
+				top: 50%;
+				width: 1em;
+				z-index: 1;
+			}
+
+			.image.icon:hover:before {
+				-moz-transform: translateZ(1em);
+				-webkit-transform: translateZ(1em);
+				-ms-transform: translateZ(1em);
+				transform: translateZ(1em);
+			}
+
+			.image.icon:hover:after {
+				opacity: 1;
+			}
+
+	span.image.icon {
+		cursor: default;
+	}
+
+
+/* Icon */
+
+.icon {
+	text-decoration: none;
+	-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	border-bottom: none;
+	position: relative;
+
+	
+}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
+
+	.icon > .label {
+		display: none;
+	}
+
+	.icon:before {
+		line-height: solid;
+	}
+
+	.icon.solid:before {
+		font-weight: 900;
+	}
+
+	.icon.brands:before {
+		font-family: 'Font Awesome 5 Brands';
+	}
+
+	.icon.major {
+		border: solid 1px;
+		display: inline-block;
+		border-radius: 100%;
+		padding: 0.65em;
+		margin: 0 0 2em 0;
+		cursor: default;
+	}
+
+		.icon.major:before {
+			display: inline-block;
+			font-size: 6.25rem;
+			width: 2.25em;
+			height: 2.25em;
+			line-height: 2.2em;
+			border-radius: 100%;
+			border: solid 1px;
+			text-align: center;
+		}
+
+
+
+	.icon.alt {
+		display: inline-block;
+		border: solid 1px;
+		border-radius: 100%;
+	}
+
+		.icon.alt:before {
+			display: block;
+			font-size: 1.25em;
+			width: 2em;
+			height: 2em;
+			text-align: center;
+			line-height: 2em;
+		}
+
+	.icon.style1 {
+		color: #efa8b0;
+
+	}
+
+	.icon.style2 {
+		color: #c79cc8;
+	}
+
+	.icon.style3 {
+		color: #a89cc8;
+	}
+
+	.icon.style4 {
+		color: #9bb2e1;
+	}
+
+	.icon.style5 {
+		color: #8cc9f0;
+	}
+
+	.icon.style10 {
+		color: #fffff;
+	}
+
+	@media screen and (max-width: 1680px) {
+
+		.icon.major:before {
+			font-size: 5.5rem;
+		}
+
+	}
+
+	@media screen and (max-width: 1280px) {
+
+		.icon.major:before {
+			font-size: 4.75rem;
+		}
+
+	}
+
+	@media screen and (max-width: 736px) {
+
+		.icon.major {
+			margin: 0 0 1.5em 0;
+			padding: 0.35em;
+		}
+
+			.icon.major:before {
+				font-size: 3.5rem;
+			}
+
+	}
+
+.icon.major {
+	border-color: rgba(255, 255, 255, 0.35);
+}
+
+	.icon.major:before {
+		border-color: rgba(255, 255, 255, 0.35);
+	}
+
+.icon.alt {
+	border-color: rgba(255, 255, 255, 0.35);
+	color: #ffffff;
+}
+
+	.icon.alt:hover {
+		background-color: rgba(255, 255, 255, 0.075);
+	}
+
+	.icon.alt:active {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
 /* Actions */
 
 	ul.actions {
@@ -1246,7 +1282,7 @@ input, select, textarea {
 
 		}
 
-/* Statistics */
+/* For Projects Section */
 
 	.statistics {
 		display: -moz-flex;
@@ -1387,20 +1423,24 @@ input, select, textarea {
 			.spotlight .content header.major {
 				margin: 0 0 2em 0;
 			}
+			
 	/* Changes pfp size */ 
-		.spotlight .image {
+		.spotlight .image { /*changes border around pfp*/
 			display: inline-block;
 			margin-left: 4em;
 			padding: 0.5em;
-			border-radius: 2px;
+			border-radius: 0px;
+			width: 0em
 			border: solid 1px;
 			transform: rotate(90deg)
 		}
 
-			.spotlight .image img {
+			.spotlight .image img { /*changes pfp size*/
 				display: circle;
 				border-radius: 2px;
 				width: 25em;
+				transform: rotate(-90deg)
+
 			}
 
 		@media screen and (max-width: 980px) {
