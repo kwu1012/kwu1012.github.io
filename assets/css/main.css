@@ -1464,6 +1464,7 @@ input, select, textarea {
 					-ms-flex: 0 1 auto;
 					flex: 0 1 auto;
 					width: 100%;
+
 				}
 
 					.spotlight .content header.major h2:after {
@@ -1486,6 +1487,8 @@ input, select, textarea {
 					flex: 0 1 auto;
 					margin-left: 0;
 					margin-bottom: 2em;
+					transform: rotate(90deg)
+
 				}
 
 		}
